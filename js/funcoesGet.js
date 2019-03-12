@@ -1562,8 +1562,6 @@ function obterCardsPorMesAno( mes, ano, cards, listas )
 {
 	var cardsMesAno = [];
 	
-	var idListaEntregue = obterIDLista( NOME_LISTA_ENTREGUE, listas );
-	
 	var cardsSemExemplos = obterCardsSemExemplos( cards );
 	
 	var dataMesAno = new Date( ano, ( mes - 1 ) );
@@ -1580,22 +1578,59 @@ function obterCardsPorMesAno( mes, ano, cards, listas )
 		{
 			var card = cardsSemExemplos[indiceCard];
 
-			var idListCard = card['idList'];
-			
-			if( idListCard != idListaEntregue )
+			var dataHoraMovidoParaEmAtendimento = obterDataHoraCardMovidoParaLista( card, NOME_LISTA_EM_ATENDIMENTO );
+				
+			if( dataHoraMovidoParaEmAtendimento != undefined )
 			{
-				var dataHoraMovidoParaEmAtendimento = obterDataHoraCardMovidoParaLista( card, NOME_LISTA_EM_ATENDIMENTO );
-					
 				if
 				(
-					dataHoraMovidoParaEmAtendimento != undefined && 
-					(
-						dataHoraMovidoParaEmAtendimento.getMonth() <= dataMesAno.getMonth()
-						|| dataHoraMovidoParaEmAtendimento.getFullYear() < dataMesAno.getFullYear()
-					)
+					dataMesAno.getMonth() == dataHoraMovidoParaEmAtendimento.getMonth()
+					&& dataMesAno.getFullYear() == dataHoraMovidoParaEmAtendimento.getFullYear()
 				)
 				{
 					cardsMesAno.push( card );
+				}
+				else
+				{
+					var dataHoraMovidoParaEntregue = obterDataHoraCardMovidoParaLista( card, NOME_LISTA_ENTREGUE );
+					
+					if( dataHoraMovidoParaEntregue == undefined )
+					{
+						if
+						(
+							dataMesAno.getFullYear() > dataHoraMovidoParaEmAtendimento.getFullYear()
+							|| 
+							(
+								dataMesAno.getMonth() > dataHoraMovidoParaEmAtendimento.getMonth()
+								&& dataMesAno.getFullYear() == dataHoraMovidoParaEmAtendimento.getFullYear()
+							)							
+						)
+						{
+							cardsMesAno.push( card );
+						}
+					}
+					else if
+					(
+						(
+							(
+								dataMesAno.getMonth() <= dataHoraMovidoParaEntregue.getMonth()
+								&& dataMesAno.getFullYear() == dataHoraMovidoParaEntregue.getFullYear()
+							)
+							|| dataMesAno.getFullYear() < dataHoraMovidoParaEntregue.getFullYear()
+						)
+						&&
+						(
+							dataMesAno.getFullYear() > dataHoraMovidoParaEmAtendimento.getFullYear()
+							|| 
+							(
+								dataMesAno.getMonth() > dataHoraMovidoParaEmAtendimento.getMonth()
+								&& dataMesAno.getFullYear() == dataHoraMovidoParaEmAtendimento.getFullYear()
+							)
+						)						
+					)
+					{
+						cardsMesAno.push( card );
+					}
 				}
 			}
 		}
