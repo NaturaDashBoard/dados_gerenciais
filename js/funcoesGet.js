@@ -1628,9 +1628,8 @@ function obterCardsPorMesAno( mes, ano, cards, listas )
 				{
 					var dataHoraMovidoParaEntregue = obterDataHoraCardMovidoParaLista( card, NOME_LISTA_ENTREGUE );
 					
-					if( dataHoraMovidoParaEntregue == undefined )
-					{
-						if
+					if
+					(
 						(
 							dataMesAno.getFullYear() > dataHoraMovidoParaEmAtendimento.getFullYear()
 							|| 
@@ -1639,26 +1638,16 @@ function obterCardsPorMesAno( mes, ano, cards, listas )
 								&& dataMesAno.getFullYear() == dataHoraMovidoParaEmAtendimento.getFullYear()
 							)
 						)
-						{
-							cardsMesAno.push( card );
-						}
-					}
-					else if
-					(
-						(
-							(
-								dataMesAno.getMonth() <= dataHoraMovidoParaEntregue.getMonth()
-								&& dataMesAno.getFullYear() == dataHoraMovidoParaEntregue.getFullYear()
-							)
-							|| dataMesAno.getFullYear() < dataHoraMovidoParaEntregue.getFullYear()
-						)
 						&&
 						(
-							dataMesAno.getFullYear() > dataHoraMovidoParaEmAtendimento.getFullYear()
+							dataHoraMovidoParaEntregue == undefined
 							||
 							(
-								dataMesAno.getMonth() > dataHoraMovidoParaEmAtendimento.getMonth()
-								&& dataMesAno.getFullYear() == dataHoraMovidoParaEmAtendimento.getFullYear()
+								(
+									dataMesAno.getMonth() <= dataHoraMovidoParaEntregue.getMonth()
+									&& dataMesAno.getFullYear() == dataHoraMovidoParaEntregue.getFullYear()
+								)
+								|| dataMesAno.getFullYear() < dataHoraMovidoParaEntregue.getFullYear()
 							)
 						)
 					)
