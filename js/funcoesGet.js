@@ -1063,15 +1063,49 @@ function obterQuantidadeHorasABAPCards( cards, camposPersonalizadosBoard )
 	return quantidadeHorasABAP;
 }
 
-function obterQuantidadeHorasEntregueTicketsFDFM( cards, camposPersonalizadosBoard, listas )
+function obterCardsTicket( cards )
 {
-	var idListaEntregue = obterIDLista( NOME_LISTA_ENTREGUE, listas );
+	var cardsTicket = [];
 	
-	var cardsTicketFDFMListaEntregue = obterCardsTicketFDFMLista( idListaEntregue, cards );
+	for( indiceCard = 0; indiceCard < cards.length; ++indiceCard )
+	{
+		var card = cards[indiceCard]; 
+		
+		if( validarCardTicket( card ) )
+		{
+			cardsTicket.push( card );
+		}
+	}
 	
-	var quantidadeHorasABAPEntregue = obterQuantidadeHorasABAPCards( cardsTicketFDFMListaEntregue, camposPersonalizadosBoard );
+	return cardsTicket;
+}
+
+function obterCardsTicketFDFM( cards )
+{
+	var cardsTicketFDFM = [];
 	
-	return quantidadeHorasABAPEntregue;	
+	var cardsTicket = obterCardsTicket( cards );
+	
+	for( indiceCardTicket = 0; indiceCardTicket < cardsTicket.length; ++indiceCardTicket )
+	{
+		var cardTicket = cardsTicket[indiceCardTicket];
+		
+		if( validarCardTicketFDFM( cardTicket ) )
+		{
+			cardsTicketFDFM.push( cardTicket );
+		}
+	}
+	
+	return cardsTicketFDFM;
+}
+
+function obterQuantidadeHorasContabilizaveisTicketsFDFM( cards, camposPersonalizadosBoard )
+{
+	var cardsTicketFDFMListaContabilizaveis = obterCardsTicketFDFM( cards );
+	
+	var quantidadeHorasABAPContabilizaveis = obterQuantidadeHorasABAPCards( cardsTicketFDFMListaContabilizaveis, camposPersonalizadosBoard );
+	
+	return quantidadeHorasABAPContabilizaveis;	
 }
 
 function obterQuantidadeHorasBacklogTicketsFDFM( cards, camposPersonalizadosBoard, listas )
@@ -1603,7 +1637,7 @@ function obterCardsPorMesAno( mes, ano, cards, listas )
 							(
 								dataMesAno.getMonth() > dataHoraMovidoParaEmAtendimento.getMonth()
 								&& dataMesAno.getFullYear() == dataHoraMovidoParaEmAtendimento.getFullYear()
-							)							
+							)
 						)
 						{
 							cardsMesAno.push( card );
@@ -1621,12 +1655,12 @@ function obterCardsPorMesAno( mes, ano, cards, listas )
 						&&
 						(
 							dataMesAno.getFullYear() > dataHoraMovidoParaEmAtendimento.getFullYear()
-							|| 
+							||
 							(
 								dataMesAno.getMonth() > dataHoraMovidoParaEmAtendimento.getMonth()
 								&& dataMesAno.getFullYear() == dataHoraMovidoParaEmAtendimento.getFullYear()
 							)
-						)						
+						)
 					)
 					{
 						cardsMesAno.push( card );

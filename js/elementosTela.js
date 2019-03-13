@@ -15,19 +15,18 @@ var selectRelease = $( '#selectRelease' );
 
 /* Elementos de Saída */
 
-var ftrABAP 					 = $( '#ftrABAP' );
-var otdABAP 					 = $( '#otdABAP' );
-var ftrFUNC 					 = $( '#ftrFUNC' );
-var otdFUNC 					 = $( '#otdFUNC' );
-var sirErro 					 = $( '#sirErro' );
-var sirFM 						 = $( '#sirFM' );
-var disponibilidadeTimeABAP 	 = $( '#disponibilidadeTimeABAP' );
-var percentualCartoesPorEtiqueta = $( '#percentualCartoesPorEtiqueta' );
-var percentualCartoesPorFase 	 = $( '#percentualCartoesPorFase' );
-var totalHorasABAPEntregue 	 	 = $( '#totalHorasABAPEntregue' );
-var totalHorasABAPBacklog 		 = $( '#totalHorasABAPBacklog' );
-var carrosselPendencias 		 = $( '#carrosselPendencias' );
-var itensCarrosselPendencias 	 = $( '#itensCarrosselPendencias' );
+var ftrABAP 					  = $( '#ftrABAP' );
+var otdABAP 					  = $( '#otdABAP' );
+var ftrFUNC 					  = $( '#ftrFUNC' );
+var otdFUNC 					  = $( '#otdFUNC' );
+var sirErro 					  = $( '#sirErro' );
+var sirFM 						  = $( '#sirFM' );
+var disponibilidadeTimeABAP 	  = $( '#disponibilidadeTimeABAP' );
+var percentualCartoesPorEtiqueta  = $( '#percentualCartoesPorEtiqueta' );
+var percentualCartoesPorFase 	  = $( '#percentualCartoesPorFase' );
+var totalHorasABAPContabilizaveis = $( '#totalHorasABAPContabilizaveis' );
+var carrosselPendencias 		  = $( '#carrosselPendencias' );
+var itensCarrosselPendencias 	  = $( '#itensCarrosselPendencias' );
 
 var grafPercentualCartoesPorEtiqueta;
 var grafPercentualCartoesPorFase;

@@ -80,20 +80,17 @@ function atualizarQuantidadeSIRs( cards )
 	atualizarQuantidadeSIRsFM( cards );
 }
 
-/*
-function atualizarTotalHorasABAPEntregue( cards )
+function atualizarTotalHorasABAPContabilizaveis( cards )
 {
-	totalHorasABAPEntregue.html
+	totalHorasABAPContabilizaveis.html
 	(
-		obterQuantidadeHorasEntregueTicketsFDFM
+		obterQuantidadeHorasContabilizaveisTicketsFDFM
 		(
 			cards,
-			camposPersonalizadosCarregados,
-			listasCarregadas
+			camposPersonalizadosCarregados
 		)
 	);
 }
-*/
 
 function atualizarFiltroProjeto()
 {
@@ -150,6 +147,8 @@ function atualizarElementosTela()
 	atualizarOTDFUNC( cardsFiltrados );
 	
 	atualizarQuantidadeSIRs( cardsFiltrados );
+	
+	atualizarTotalHorasABAPContabilizaveis( cardsFiltrados )
 	
 	atualizarFiltroProjeto();
 	
