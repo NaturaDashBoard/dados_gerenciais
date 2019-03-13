@@ -1,3 +1,16 @@
+html
+{
+	background-image: linear-gradient(rgb(231, 185, 53), rgb(205, 102, 81));
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.bg-color-transparent
+{
+	background-color: transparent;
+}
+
+/*
 .row .bg-color-transparent
 {
 	background-color: transparent;
@@ -14,6 +27,7 @@
 	background-repeat: no-repeat;
     background-attachment: fixed;
 }
+*/
 
 .col
 {
