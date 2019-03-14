@@ -21,7 +21,7 @@
 	</head>
 
 	<body class="container-fluid custom-container sem-barras-rolagem bg-color-transparent">
-		<div class="row bg-color-transparent">
+		<div class="row">
 			<div class="col col-4">
 				<div class="row">
 					<div class="col inner-col" style="padding-left: 10px;">
@@ -31,10 +31,10 @@
 					<div class="col col-5 inner-col" style="padding-top: 1%;">
 						<div class="row inner-row" style="margin-top: 9px;">
 							<div class="col col-xl-1">
-								<p style="font-size: 0.85em;">Projeto:</p>
+								<p style="font-size: 0.85em; margin-left: -25px;">Projeto:</p>
 							</div>
 							
-							<div class="col bg-color-transparent" style="margin-left: 15px;">
+							<div class="col bg-color-transparent">
 								<select id="selectProjeto" style="font-size: 0.80em;">
 									<option value="Todos">Todos</option>
 								</select>
@@ -43,10 +43,10 @@
 						
 						<div class="row inner-row" style="margin-top: 10px;">
 							<div class="col col-xl-1">
-								<p style="font-size: 0.85em;">Release:</p>
+								<p style="font-size: 0.85em; margin-left: -25px;">Release:</p>
 							</div>
 							
-							<div class="col bg-color-transparent" style="margin-left: 15px;">
+							<div class="col bg-color-transparent">
 								<select id="selectRelease" style="font-size: 0.80em;">
 									<option value="Todos">Todos</option>
 								</select>
@@ -55,10 +55,10 @@
 						
 						<div class="row inner-row" style="margin-top: 10px;">
 							<div class="col col-1">
-								<p style="font-size: 0.85em;">Mês:</p>
+								<p style="font-size: 0.85em; margin-left: -25px;">Mês:</p>
 							</div>
 							
-							<div class="col col-2 bg-color-transparent" style="margin-left: 15px;">
+							<div class="col col-2 bg-color-transparent">
 								<textarea id="campoTextoMes" rows=1 cols=3 maxlength="2" placeholder="DD"></textarea>
 							</div>
 							
@@ -66,7 +66,7 @@
 								<p style="font-size: 0.85em;">Ano:</p>
 							</div>
 							
-							<div class="col col-2 bg-color-transparent" >
+							<div class="col col-2 bg-color-transparent" style="margin-left: 5px;">
 								<textarea id="campoTextoAno" rows=1 cols=5 maxlength="4" placeholder="AAAA"></textarea>
 							</div>									
 						</div>
@@ -88,11 +88,41 @@
 				</div>
 			</div>
 			
-			<div class="col col-2">
+			<div class="col col-1 ftr-otd">
+				<h1>FTR ABAP</h1>
+				<h2 id="ftrABAP">
+					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+				</h2>
+			</div>
+			
+			<div class="col col-1 ftr-otd">
+				<h1>OTD ABAP</h1>
+				<h2 id="otdABAP">
+					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+				</h2>
+			</div>
+			
+			<div class="col col-1 ftr-otd">
+				<h1>FTR FUNC</h1>
+				<h2 id="ftrFUNC">
+					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+				</h2>
+			</div>
+			
+			<div class="col col-1 ftr-otd">
+				<h1>OTD FUNC</h1>
+				<h2 id="otdFUNC">
+					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+				</h2>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col col-1">
 				<table class="table">
 					<thead>
 						<tr>
-							<th scope="col">Quant. de SIRs</th>
+							<th class="cabecalho-qtd-sirs" scope="col">Quant. de SIRs</th>
 						</tr>
 					</thead>
 					
@@ -116,39 +146,11 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>	
-
+			</div>
+			
 			<div class="col col-2 total-horas-abap">
 				<h1>Total de Horas ABAP Contabilizáveis</h1>
 				<h2 id="totalHorasABAPContabilizaveis">
-					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-				</h2>
-			</div>
-			
-			<div class="col ftr-otd">
-				<h1>FTR ABAP</h1>
-				<h2 id="ftrABAP">
-					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-				</h2>
-			</div>
-			
-			<div class="col ftr-otd">
-				<h1>OTD ABAP</h1>
-				<h2 id="otdABAP">
-					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-				</h2>
-			</div>
-			
-			<div class="col ftr-otd">
-				<h1>FTR FUNC</h1>
-				<h2 id="ftrFUNC">
-					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-				</h2>
-			</div>
-			
-			<div class="col ftr-otd">
-				<h1>OTD FUNC</h1>
-				<h2 id="otdFUNC">
 					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 				</h2>
 			</div>
